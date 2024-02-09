@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="Site de exercício" />
+    <meta name="keywords" content="Exercício de html, css e js " />
+    <!-- Fonts do google -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Style e js  -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <title>Agência Fake</title>
+</head>
+<body>
+    <!-- start header-->
+    <header class="header">
+        <div class="header-c">
+            <div>
+                <h1 class="logo">Agência Fake</h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li>
+                        <a href="#">Barcos e Lanchas</a>
+                    </li>
+                    <li>
+                        <a href="#">Destaque</a>
+                    </li>
+                    <li>
+                        <a href="#">Testemunhas</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button onclick="openCloseMenu()" id="toggle">
+                <span class="row"></span>
+                <span class="row"></span>
+                <span class="row"></span>
+            </button>
+        </div>
+    </header>
+    <nav id="navbar-mobile" class="navbar-mobile">
+        <ul>
+            <li>
+                <a onclick="openCloseMenu()" href="#">Barcos e Lanchas</a>
+            </li>
+            <li>
+                <a onclick="openCloseMenu()" href="#">Destaque</a>
+            </li>
+            <li>
+                <a onclick="openCloseMenu()" href="#">Testemunhas</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- end header-->
+
+    <!-- atart banner -->
+    <section class="banner">
+        <div class="banner-c">
+            <div class="banner-text">
+                <h2>Lorem Ipsum placeholder</h2>
+                <p>Commonly used in the graphic</p>
+            </div>
+            <div class="banner-search">
+                <input type="search" name="search" id="search" placeholder="Buscar por..." />
+            </div>
+        </div>
+    </section>
+    <!-- end banner -->
+
+</body>
+</html>
