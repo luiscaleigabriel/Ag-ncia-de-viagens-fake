@@ -290,3 +290,94 @@ a {
 
 /*Carrocel
 ------------------------------------------------------------*/
+.carrocel {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider {
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+    width: 400%;
+    height: 400px;
+    display: flex;
+}
+
+.slides input {display: none;}
+
+.slides .slide {
+    width: 25%;
+    position: relative;
+    transition: all .5s ease;
+}
+
+.slides .slide img {
+    width: 800px;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.manual-navigation, .auto-navigation {
+    position: absolute;
+    width: 800px;
+    bottom: 10px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.manual-btn, .auto-navigation div {
+    border: 2px solid #fff;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.manual-btn:hover{
+    background-color: #ffffff83;
+}
+
+#radio1:checked ~ .auto-navigation .auto-btn1 {
+    background-color: #ffffff83;
+}
+
+#radio2:checked ~ .auto-navigation .auto-btn2 {
+    background-color: #ffffff83;
+}
+
+#radio3:checked ~ .auto-navigation .auto-btn3 {
+    background-color: #ffffff83;
+}
+
+#radio4:checked ~ .auto-navigation .auto-btn4 {
+    background-color: #ffffff83;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0%;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -25%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -50%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -75%;
+}
+
