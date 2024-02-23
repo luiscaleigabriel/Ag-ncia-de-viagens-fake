@@ -381,3 +381,33 @@ a {
     margin-left: -75%;
 }
 
+@media screen and (max-width: 820px) {
+    .slider {
+        width: 100%;
+    }
+
+    .slides {
+        width: 300%;
+    }
+
+    .slides .slide {
+        width: 75%;
+        padding: 0px 4px;
+    }
+
+    #radio1:checked ~ .first {
+        margin-left: 0%;
+    }
+    
+    #radio2:checked ~ .first {
+        margin-left: -35%;
+    }
+    
+    #radio3:checked ~ .first {
+        margin-left: -70%;
+    }
+    
+    #radio4:checked ~ .first {
+        margin-left: -140%;
+    }
+}
