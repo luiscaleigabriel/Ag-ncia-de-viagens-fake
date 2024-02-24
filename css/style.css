@@ -35,6 +35,26 @@ img {
     object-fit: cover;
 }
 
+.button-c {
+    width: 100%;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.btn-mais {
+    font-size: 1rem;
+    color: #000;
+    border-radius: 5px;
+    border: 2px solid #adacac;
+    padding: 10px 20px;
+    transition: all .5s ease;
+}
+
+.btn-mais:hover {
+    color: #fff;
+    background-color: #adacac;
+}
+
 /*Header
 ------------------------------------------------------------*/
 .header {
@@ -301,7 +321,7 @@ img {
 }
 
 .sobre-c {
-    width: 900px;
+    width: 1000px;
     margin: 0 auto;
 }
 
@@ -319,7 +339,7 @@ img {
     font-size: 1rem;
 }
 
-.sobre-images {
+.sobre-c .sobre-images {
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(3, 1fr);
@@ -337,6 +357,45 @@ img {
     position: relative;
 }
 
+.sobre-images .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 8px;
+    background-color: black;
+}
+
+.sobre-images .overlay:hover {
+    opacity: .5;
+}
+
+.sobre-images .overlay:hover  ~ img {
+    display: none;
+    transform: scale(2);
+}
+
+.sobre-images div.overlay p, .sobre-images div.overlay h3 {
+    position: absolute;
+    color: #fff;
+}
+
+.sobre-images div.overlay h3 {
+    font-size: 2rem;
+    left: 10px;
+    bottom: 30px;
+}
+
+.sobre-images div.overlay p {
+    font-size: 1rem;
+    left: 10px;
+    bottom: 10px;
+}
+
 .sobre-images div .descricao {
    position: absolute;
    top: 10px;
@@ -346,6 +405,13 @@ img {
    border-radius: 8px;
    font-size: 1rem;
    background-color: #ff0040;
+}
+
+@media screen and (max-width: 1040px) {
+    .sobre-c {
+        width: 900px;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 920px) {
