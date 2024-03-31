@@ -5,3 +5,4 @@ function openCloseMenu() {
     toggle.classList.toggle('tagOpen');
     navbarMobile.classList.toggle('openCloseMenu');
 }
+ 

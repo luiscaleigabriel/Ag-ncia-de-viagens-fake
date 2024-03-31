@@ -12,7 +12,8 @@
 
 body {
     user-select: none;
-    font-size: 62.5%
+    font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 ul {list-style: none;}
@@ -23,9 +24,9 @@ a {
 }
 
 .logo {
-    color: #fff;
+    color: #1e90ff;
     font-size: 1.5rem;
-    text-shadow: 0 0 20px #adacac;
+    text-shadow: 0 0 20px #1e90ff;
     font-family: 'Lobster', cursive;
 }
 
@@ -34,6 +35,8 @@ img {
     height: 100%;
     object-fit: cover;
 }
+
+/* Botões */
 
 .button-c {
     width: 100%;
@@ -47,13 +50,29 @@ img {
     border-radius: 5px;
     border: 2px solid #adacac;
     padding: 10px 20px;
-    transition: all .5s ease;
+    transition: .5s ease-in-out;
 }
 
 .btn-mais:hover {
     color: #fff;
     background-color: #adacac;
 }
+
+.btn-primary {
+    font-size: 1rem;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 40px;
+    transition: .5s ease-in-out;
+    border: 2px solid #ff0040;
+    background-color: #ff0040;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+}
+
 
 /*Header
 ------------------------------------------------------------*/
@@ -62,13 +81,15 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 50;
+    height: 55px;
+    z-index: 999;
+    background-color: #fff;
 }
 
 .header-c {
    padding: 10px 8%;
    display: flex; 
-   flex-wrap: wrap;
+   flex-wrap: nowrap;
    align-items: center;
    justify-content: space-between   ;
 }
@@ -83,19 +104,23 @@ img {
     position: relative;
     font-size: 1rem;
     padding: 10px;
-    color: #fff;
+    color: #000;
+    transition:all .5s ease;
+}
+
+.navbar ul li a:hover {
+    color: #1e90ff;
 }
 
 .navbar ul li a::before {
     content: '';
     position: absolute;
     width: 0%;
-    height: 3px;
+    height: 2px;
     bottom: 0;
-    left: 0;
-    transition:all .4s ease;
+    transition:all .5s ease;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: #1e90ff;
 }
 
 .navbar ul li a:hover::before {
@@ -105,9 +130,15 @@ img {
 #toggle {display: none;}
 
 .navbar-mobile {
-    height: 0;
-    overflow: hidden;
     position: fixed;
+    top: 55px;
+    left: 0;
+    height: 0;
+    width: 100%;
+    z-index: 300;
+    overflow: hidden;
+    background-color: #ccc;
+    transition: all .4s ease-in-out;
 }
 
 @media screen and (max-width: 700px) {
@@ -120,7 +151,8 @@ img {
         display: block;
         width: 40px;
         height: 40px;
-        border: none;
+        border-radius: 5px;
+        border: 2px solid #1e90ff;
         background-color: transparent;
     }
 
@@ -128,11 +160,15 @@ img {
         display: block;
         width: 80%;
         height: 3px;
-        margin: 4px 0;
+        margin: 4px auto;
         transition: .5s ease;
         border-radius: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px #ccc;
+        background-color: #1e90ff;
+        box-shadow: 0 0 10px #1e90ff;
+    }
+
+    #toggle.tagOpen  {
+        border-color: tomato;
     }
 
     #toggle.tagOpen .row  {
@@ -141,7 +177,7 @@ img {
     }
 
     #toggle.tagOpen .row:nth-child(1)  {
-        transform: translateY(5px) rotate(-45deg);
+        transform: translateY(3px) rotate(-45deg);
     }
 
     #toggle.tagOpen .row:nth-child(2)  {
@@ -149,33 +185,42 @@ img {
     }
 
     #toggle.tagOpen .row:nth-child(3)  {
-        transform: translateY(-2px) rotate(45deg);
+        transform: translateY(-3px) rotate(45deg);
     }
 
-    .openCloseMenu {
-        display: block;
-        position: fixed;
-        top: 14%;
-        width: 100%;
-        height: auto;
-        color: #fff;
-        z-index: 90;
-        background-color: #000;
-    }
-
-    .openCloseMenu ul li a {
+    .navbar-mobile ul li a {
         display: block;
         font-size: 1rem;
         padding: 20px;
-        transition: all .5s ease;
+        border-top: 1px solid;
+        transition: all .4s ease-in-out;
+        background-color: #000000d2;
     }
 
-    .openCloseMenu ul li a:hover {
-        color: #000;
+    .navbar-mobile ul li a:hover {
+        color: #000000d2;
         font-weight: bold;
-        background-color: #ccc;
+        background-color: #fff;
     }
 
+    .navbar-mobile.openCloseMenu {
+        height: 100%;
+        color: #fff;
+        z-index: 90;
+        background-color: #ccccccd7;
+    }
+
+}
+
+@media screen and (max-width: 175px) {
+    .header {
+        height: 65px;
+    }
+
+    .navbar-mobile {
+        top: 65px;
+        overflow: auto;
+    }
 }
 
 /*Banner
@@ -303,7 +348,7 @@ img {
 @media screen and (max-width: 500px) {
     .destaque {
         top: 400px;
-        width: 70%;
+        width: 90%;
         grid-template-columns: repeat(1, 1fr);
     }
 
@@ -311,13 +356,13 @@ img {
 
     .destaque div:not(:last-child) {border-bottom: 1px solid #adacac;}
 
-    .destaque div {padding: 20px;}
+    .destaque div {padding: 20px 0;}
 }
 
 /*Sobre
 ------------------------------------------------------------*/
 .sobre {
-    padding: 150px 0;
+    padding-top: 150px;
 }
 
 .sobre-c {
@@ -374,11 +419,6 @@ img {
     opacity: .5;
 }
 
-.sobre-images .overlay:hover  ~ img {
-    display: none;
-    transform: scale(2);
-}
-
 .sobre-images div.overlay p, .sobre-images div.overlay h3 {
     position: absolute;
     color: #fff;
@@ -409,34 +449,41 @@ img {
 
 @media screen and (max-width: 1040px) {
     .sobre-c {
-        width: 900px;
-        margin: 0 auto;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .sobre-text h2 {
+        font-size: 2.5rem;
     }
 }
 
-@media screen and (max-width: 920px) {
-    div.sobre-images {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .sobre-c {
-        width: 100%;
-        padding: 0 10px;
-    }
-    div.image-big {
-        grid-column: 1 / 1;
-    }
-}
 
 @media screen and (max-width: 880px) {
-    div.sobre-images {
+    .sobre-text h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    div#sobre-images {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    div.image-big {
+        grid-column: auto;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .sobre-images {
-        grid-template-columns: repeat(2, 1fr);
+    div#sobre-images {
+        grid-template-columns: 1fr;
     }
+
+    #sobre #sobre-images div {
+        height: 400px;
+    }
+
     .sobre-text h2 {
         font-size: 1.5rem;
         font-weight: bold;
@@ -445,17 +492,57 @@ img {
 }
 
 @media screen and (max-width: 500px) {
-    .sobre {
-        padding: 350px 0;
-    }
     .sobre-images {
         grid-template-columns: 1fr;
     }
     .image-big {
         grid-column: 1 / 1;
     }
+    .sobre-c {
+        padding: 0 10px;
+    }
 }
 
 
-/*Banner-s
+/*banner-destaque
 ------------------------------------------------------------*/
+.banner-destaque {
+    width: 100%;
+    padding: 10rem 0;
+    display: flex;
+    color: #fff;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("../images/bg-paralax.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 50px;
+}
+
+.banner-destaque > h2 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.banner-destaque > p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .banner-destaque > h2 {
+        font-size: 2rem;
+    }
+    
+    .banner-destaque > p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .banner-destaque > h2 {
+        font-size: 1.5rem;
+    }
+}
