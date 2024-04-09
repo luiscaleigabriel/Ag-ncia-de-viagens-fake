@@ -6,3 +6,9 @@ function openCloseMenu() {
     navbarMobile.classList.toggle('openCloseMenu');
 }
  
+//Menu Scrool
+const header = document.querySelector('#header');
+
+window.addEventListener('scroll', () => {
+    header.classList.toggle('rolagem', window.scrollY > 0);
+});

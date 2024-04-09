@@ -36,6 +36,10 @@ img {
     object-fit: cover;
 }
 
+h2 {
+    text-transform: uppercase;
+}
+
 /* Botões */
 
 .button-c {
@@ -83,7 +87,22 @@ img {
     width: 100%;
     height: 55px;
     z-index: 999;
+    transition: .5s ease;
+}
+
+header#header.rolagem {
     background-color: #fff;
+    animation: suave 1s ease-in-out forwards;
+}
+
+@keyframes suave {
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .header-c {
@@ -359,28 +378,34 @@ img {
     .destaque div {padding: 20px 0;}
 }
 
-/*Sobre
+/*Sobre and lanchas
 ------------------------------------------------------------*/
 .sobre {
     padding-top: 150px;
 }
 
-.sobre-c {
+.sobre-c,
+.lanchas-c,
+.testemunhas-c,
+.footer-c {
     width: 1000px;
     margin: 0 auto;
 }
 
-.sobre-text {
+.sobre-text,
+.testemunhas-text {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.sobre-text h2 {
+.sobre-text h2,
+.testemunhas-text h2 {
     font-weight: normal;
     font-size: 3rem;
 }
 
-.sobre-text p {
+.sobre-text p,
+.testemunhas-text p {
     font-size: 1rem;
 }
 
@@ -390,7 +415,8 @@ img {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.sobre-images img {
+.sobre-images img,
+.lanchas-images img {
     border-radius: 8px;
 }
 
@@ -398,11 +424,13 @@ img {
     grid-column: 1 / 3;
 }
 
-.sobre-images div {
+.sobre-images div,
+.lanchas-images div {
     position: relative;
 }
 
-.sobre-images .overlay {
+.sobre-images .overlay,
+.lanchas-images .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -415,31 +443,37 @@ img {
     background-color: black;
 }
 
-.sobre-images .overlay:hover {
+.sobre-images .overlay:hover,
+.lanchas-images .overlay:hover {
     opacity: .5;
 }
 
-.sobre-images div.overlay p, .sobre-images div.overlay h3 {
+.sobre-images div.overlay p, .sobre-images div.overlay h3,
+.lanchas-images div.overlay p, .lanchas-images div.overlay h3 {
     position: absolute;
     color: #fff;
 }
 
-.sobre-images div.overlay h3 {
+.sobre-images div.overlay h3,
+.lanchas-images div.overlay h3 {
     font-size: 2rem;
     left: 10px;
     bottom: 30px;
 }
 
-.sobre-images div.overlay p {
+.sobre-images div.overlay p,
+.lanchas-images div.overlay p {
     font-size: 1rem;
     left: 10px;
     bottom: 10px;
 }
 
-.sobre-images div .descricao {
+.sobre-images div .descricao,
+.lanchas-images div .descricao {
    position: absolute;
    top: 10px;
    left: 10px;
+   z-index: 10;
    padding: 4px;
    color: #fff;
    border-radius: 8px;
@@ -448,19 +482,24 @@ img {
 }
 
 @media screen and (max-width: 1040px) {
-    .sobre-c {
+    .sobre-c,
+    .lanchas-c,
+    .testemunhas-c,
+    .footer-c {
         width: 100%;
         padding: 0 20px;
     }
 
-    .sobre-text h2 {
+    .sobre-text h2,
+    .testemunhas-text h2 {
         font-size: 2.5rem;
     }
 }
 
 
 @media screen and (max-width: 880px) {
-    .sobre-text h2 {
+    .sobre-text h2,
+    .testemunhas-text h2 {
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 10px;
@@ -484,7 +523,8 @@ img {
         height: 400px;
     }
 
-    .sobre-text h2 {
+    .sobre-text h2,
+    .testemunhas-text h2 {
         font-size: 1.5rem;
         font-weight: bold;
         margin-bottom: 10px;
@@ -498,7 +538,8 @@ img {
     .image-big {
         grid-column: 1 / 1;
     }
-    .sobre-c {
+    .sobre-c,
+    .lanchas-c {
         padding: 0 10px;
     }
 }
@@ -544,5 +585,200 @@ img {
 @media screen and (max-width: 600px) {
     .banner-destaque > h2 {
         font-size: 1.5rem;
+    }
+}
+
+/*lanchas
+------------------------------------------------------------*/
+.lanchas-images {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (max-width: 700px) {
+    .lanchas-images {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*lanchas
+------------------------------------------------------------*/
+.testemunha {
+    width: 100%;
+    padding: 4rem 0;
+    background: url("../images/bg-testemunhas.jpg") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.testemunha-cards {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.testemunha-card {
+    width: 31.3%;
+    padding: 10px;
+    transition: .5s ease-in-out;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.testemunha-card:hover {
+    transform: scale(1.06);
+}
+
+.testemunha-cards-text {
+    font-size: 1rem;
+    margin: 20px 0;
+    padding-left: 10px;
+    text-align: justify;
+    border-left: 10px solid #ccc;
+}
+
+.testemunha-card-image-d {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.testemunha-card-image {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.nome {
+    color: red;
+    font-weight: bold;
+}
+
+.nome,
+.cargo {
+    font-size: .8rem;
+    display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .testemunha-cards {
+        gap: 10px;
+    }
+    
+    .testemunha-card {
+        width: 32%;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .testemunha-card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .testemunha-card {
+        width: 100%;
+    }
+}
+
+/*footer
+------------------------------------------------------------*/
+.footer {
+    color: #fff;
+    font-size: 1rem;
+    padding: 2.5rem 0;
+    background-color: rgba(0, 0, 0, 0.92);
+}
+
+.footer-sup {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.footer-sup div {
+    width: 25%;
+}
+
+.footer-sup div:nth-child(1) {
+    width: 35%;
+    text-align: justify;
+}
+
+.footer-sup div:nth-child(2) p:not(:last-child) {
+    margin-bottom: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid;
+}
+
+.footer-sup div:nth-child(3) p {
+    padding: 10px 0;
+}
+
+.footer-sup div:nth-child(3) p i {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+hr {
+    margin: 10px;
+}
+
+.footer-sub {
+    padding: 10px 0;
+    text-align: center;
+    opacity: .8;
+}
+
+@media screen and (max-width: 1000px) {
+    .footer-sup div {
+        width: 30%;
+    }
+
+    .footer-sup div:nth-child(1) {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .footer-sup {
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: start;
+    }
+
+    .footer-sup div {
+        width: calc(50% -10px);
+    }
+
+    .footer-sup div:nth-child(1) {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .footer-sup {
+        flex-direction: column;
+    }
+
+    .footer-sup div {
+        width: 100%;
+    }
+
+    .footer-sup div:nth-child(1) {
+        width: 100%;
     }
 }
