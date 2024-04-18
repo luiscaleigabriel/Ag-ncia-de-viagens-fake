@@ -532,6 +532,9 @@ header#header.rolagem {
 }
 
 @media screen and (max-width: 500px) {
+    #sobre {
+        margin-top: 200px;
+    }
     .sobre-images {
         grid-template-columns: 1fr;
     }
@@ -782,3 +785,4 @@ hr {
         width: 100%;
     }
 }
+
